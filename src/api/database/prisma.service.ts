@@ -36,7 +36,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
             Logger.debug(url, "PRISMA");
             throw Error("[CONFIG] DATABASE_URL Not Valid ");
         }
-        Logger.debug("DATABASE_URL is Valid", "PrismaLoader");
+        Logger.debug(`DATABASE_URL(${url}) is Valid`, "PrismaLoader");
     }
 
     async onModuleInit() {
