@@ -9,6 +9,7 @@ import { ProjectModule } from "./api/project/project.module";
 import { PublicModule } from "./api/public/public.module";
 import { HttpLoggerMiddleware } from "./shared/middlewares/logger";
 import { ThrottlerModule } from "@nestjs/throttler";
+import { ResponseInterceptor } from "src/interceptors/ResponseInterceptor";
 
 @Module({
     imports: [
@@ -41,6 +42,10 @@ import { ThrottlerModule } from "@nestjs/throttler";
         {
             provide: APP_INTERCEPTOR,
             useClass: CacheInterceptor,
+        },
+        {
+            provide: APP_INTERCEPTOR,
+            useClass: ResponseInterceptor,
         },
     ],
 })
