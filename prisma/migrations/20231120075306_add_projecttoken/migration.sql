@@ -63,3 +63,19 @@ CREATE UNIQUE INDEX "_ProjectToUser_AB_unique" ON "_ProjectToUser"("A", "B");
 
 -- CreateIndex
 CREATE INDEX "_ProjectToUser_B_index" ON "_ProjectToUser"("B");
+
+-- 2024-3-27 ---
+
+-- CreateFinancialRecord
+CREATE TABLE "financial record" (
+    "id" UUID NOT NULL DEFAULT gen_random_uuid(),
+    "describe" TEXT NOT NULL,
+    "operator" TEXT NOT NULL,
+    "sum" "Role" NOT NULL DEFAULT 'unverified',
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "users_pkey" PRIMARY KEY ("id")
+);
+
+
